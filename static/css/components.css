@@ -1,0 +1,36 @@
+.button {
+    border: none;
+    border-radius: 4px;
+    color: #fff;
+    padding: .4rem;
+    cursor: pointer;
+}
+
+.add-button {
+    background: #04fc84;
+}
+
+.add-button:hover {
+    background: #37fc9c;
+    transition: .3s;
+}
+
+.delete-button {
+    background: #f35846;
+    
+}
+
+.delete-button:hover {
+    background: #f76656;
+    transition: .3s;
+}
+
+.edit-button {
+    background: #f4ac3c;
+    
+}
+
+.edit-button:hover {
+    background:  #fab74c;
+    transition: .3s;
+}

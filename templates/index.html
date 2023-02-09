@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/static/css/reset.css">
+    <link rel="stylesheet" href="/static/css/style.css">
+    <link rel="stylesheet" href="/static/css/components.css">
+    <title>Cadastro de Pessoas</title>
+</head>
+<body>
+    <header class="banner">
+        <h1 class="banner_text">Cadastro de Pessoas</h1>
+    </header>
+    <main>
+
+        
+        
+
+        <div class="search">
+            <input class="search_input" type="search" name="" id="" placeholder="Buscar por nome...">
+        </div>
+        
+        <div class="register-person">
+            <div class="register-person_person">
+                <input type="text" name="" id="person-name" placeholder="Nome">
+                <input type="number" name="" id="person-age" placeholder="Idade">
+            </div>
+            <div class="register-person_address">
+                <input type="text" name="" id="" placeholder="Rua">
+                <input type="number" name="" id="" placeholder="Número">
+                <input type="text" name="" id="" placeholder="CEP">
+            </div>
+            <div class="add-person">
+                <input type="button" data-add-person class="add-button button" value="Adicionar Pessoa">
+            </div>
+        </div>
+        <table class="table_content">
+            <thead class="table_head">
+                <tr>
+                    <th>id</th>
+                    <th>Nome</th>
+                    <th>Idade</th>
+                    <th>Rua</td>
+                    <th>Número</th>
+                    <th>CEP</th>
+                    <th></th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody class="table_body">
+                <tr>
+                    <td>1</td>
+                    <td>John Name</td>
+                    <td>18</td>
+                    <td>R. Street</td>
+                    <td>55</td>
+                    <td>11111-111</td>
+                    <td>
+                        <input type="button" class="delete-button button" value="Deletar">
+                    </td>
+                    <td>
+                        <input type="button" class="edit-button button"  value="Editar">
+                    </td>
+                </tr>
+                        
+            </tbody>
+        </table>
+    </main>
+</body>
+<script src="/static/js/openInputs.js"></script>
+</html>
