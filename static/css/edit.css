@@ -1,0 +1,10 @@
+.edit-person {
+    display: flex;
+    flex-direction: column;
+    width: 20%;
+    margin: 0 auto;
+}
+
+.edit-person h2 {
+    font-size: 24px;
+}

@@ -69,13 +69,6 @@ html {
     gap: .5rem;
 }
 
-.register-person_address # {
-    display: flex;
-    gap: .5rem;
-}
-
-
-
 .add-person {
     width: 10%;
     margin: 0 auto;

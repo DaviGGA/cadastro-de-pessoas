@@ -16,21 +16,24 @@
     <header class="banner">
         <h1 class="banner_text">Cadastro de Pessoas</h1>
     </header>
-    <main> 
-        <div class="register-person">
-            <div class="register-person_person">
-                <input type="text" name="" id="person-name" placeholder="Nome">
-                <input type="number" name="" id="person-age" placeholder="Idade">
+    <main>
+        <form action="" method="POST"> {% csrf_token %}
+            <div class="register-person">
+                <div class="register-person_person">
+                    <input type="text" name="name" id="person-name" placeholder="Nome">
+                    <input type="number" name="age" id="person-age" placeholder="Idade">
+                </div>
+                <div class="register-person_address">
+                    <input type="text" name="street" id="address-street" placeholder="Rua">
+                    <input type="number" name="number" id="address-number" placeholder="Número">
+                    <input type="text" name="cep" id="address-cep" placeholder="CEP">
+                </div>
             </div>
-            <div class="register-person_address">
-                <input type="text" name="" id="address-street" placeholder="Rua">
-                <input type="number" name="" id="address-number" placeholder="Número">
-                <input type="text" name="" id="address-cep" placeholder="CEP">
+            <div class="add-person">
+                <input type="submit" class="add-button button" value="Adicionar Pessoa">
             </div>
-        </div>
-        <div class="add-person">
-            <input type="button" class="add-button button" value="Adicionar Pessoa">
-        </div>
+        </form>
+        
         <div class="search">
             <input class="search_input" type="search" name="" id="" placeholder="Buscar por nome...">
         </div>
@@ -48,20 +51,24 @@
                 </tr>
             </thead>
             <tbody class="table_body">
-                <tr>
-                    <td>1</td>
-                    <td>John Name</td>
-                    <td>18</td>
-                    <td>R. Street</td>
-                    <td>55</td>
-                    <td>11111-111</td>
-                    <td>
-                        <input type="button" class="delete-button button" value="Deletar">
-                    </td>
-                    <td>
-                        <input type="button" class="edit-button button"  value="Editar">
-                    </td>
-                </tr>
+                {% for person in persons %}
+                    <tr>
+                        <td>{{person.id}}</td>
+                        <td>{{person.name}}</td>
+                        <td>{{person.age}}</td>
+                        <td>{{person.address.street}}</td>
+                        <td>{{person.address.house_number}}</td>
+                        <td>{{person.address.cep}}</td>
+                        <form action="{% url 'delete' person.pk %}" method="post"> {% csrf_token %}
+                            <td>
+                                <button class="delete-button button" name="delete">Deletar</button>
+                            </td>
+                        </form>
+                        <td>
+                            <a href="{% url 'edit' person.pk %}" class="edit-button button"  type="submit">Editar</a>
+                        </td>
+                    </tr>
+                {% endfor %}
                         
             </tbody>
         </table>
