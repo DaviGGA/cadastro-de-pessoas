@@ -9,7 +9,7 @@ class Address(models.Model):
 class Person(models.Model):
     name = models.CharField(max_length=100)
     age = models.PositiveIntegerField()
-    address = models.ForeignKey(Address, on_delete= models.CASCADE)
+    address = models.OneToOneField(Address, on_delete= models.CASCADE)
 
 
 

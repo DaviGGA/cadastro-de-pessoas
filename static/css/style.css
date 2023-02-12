@@ -19,7 +19,8 @@ html {
 }
 
 .search {
-    
+    display: flex;
+    gap: 1rem;
     width: 30%;
     margin: 0 auto;
     margin-top: 1rem;

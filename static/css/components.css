@@ -35,3 +35,12 @@
     background:  #fab74c;
     transition: .3s;
 }
+
+.search-button {
+    background: #217afa;
+}
+
+.search-button:hover {
+    background: #3688fa;
+    transition: .3s;
+}

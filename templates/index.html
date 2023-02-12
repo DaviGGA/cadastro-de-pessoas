@@ -36,6 +36,7 @@
         
         <div class="search">
             <input class="search_input" type="search" name="" id="" placeholder="Buscar por nome...">
+            <button type="submit" class="button search-button">Buscar</button>
         </div>
         <table class="table_content">
             <thead class="table_head">
@@ -52,7 +53,7 @@
             </thead>
             <tbody class="table_body">
                 {% for person in persons %}
-                    <tr>
+                    <tr class="person">
                         <td>{{person.id}}</td>
                         <td>{{person.name}}</td>
                         <td>{{person.age}}</td>
@@ -74,5 +75,5 @@
         </table>
     </main>
 </body>
-<script src="/static/js/openInputs.js"></script>
+<script src="/static/js/filterPerson.js"></script>
 </html>

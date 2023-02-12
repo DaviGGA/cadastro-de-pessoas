@@ -1,9 +1,7 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from . models import *
-from django.shortcuts import redirect
 
 def index(request):
-
     persons = Person.objects.all()
    
     if request.method == 'POST':
@@ -28,12 +26,14 @@ def index(request):
 def delete(request,pk):
     if request.method == 'POST':
         person = Person.objects.filter(pk = pk).first()
-        person.delete()
+        person_address = Address.objects.get(pk = person.address.pk)
+        person_address.delete()
 
         return redirect ('/')
 
 def edit (request,pk):
     person = Person.objects.filter(pk = pk).first()
+    person_address = Address.objects.get(pk = person.address.pk)
 
     if request.method == 'POST':
         name = request.POST['e-name']
@@ -42,13 +42,18 @@ def edit (request,pk):
         number = request.POST['e-number']
         cep = request.POST['e-cep']
 
+        print(person_address.street)
+        print("OI")
+
         person.name = name
         person.age = age
-        person.address.street = street
-        person.address.house_number = number
-        person.address.cep = cep
+        person_address.street = street
+        person_address.house_number = number
+        person_address.cep = cep
+        
         
         person.save()
+        person_address.save()
 
         return redirect ('/')
 
