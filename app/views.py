@@ -11,7 +11,9 @@ def index(request):
         number = request.POST['number']
         cep = request.POST['cep']
 
-        address = Address.objects.create(street = street, house_number = number, cep = cep)
+        cep_nums = cep.replace("-","")
+
+        address = Address.objects.create(street = street, house_number = number, cep = cep_nums)
         person = Person.objects.create(name = name, age = age, address = address)
 
         address.save()
@@ -58,3 +60,30 @@ def edit (request,pk):
         return redirect ('/')
 
     return render(request, 'edit.html', {'person' : person})
+
+
+def search(request):
+    query = request.GET['query']
+    if query:
+        persons = Person.objects.filter(name__icontains = query)
+    else:
+        return redirect('/')
+
+    if request.method == 'POST':
+        name = request.POST['name']
+        age = request.POST['age']
+        street = request.POST['street']
+        number = request.POST['number']
+        cep = request.POST['cep']
+
+        cep_nums = cep.replace("-","")
+
+        address = Address.objects.create(street = street, house_number = number, cep = cep_nums)
+        person = Person.objects.create(name = name, age = age, address = address)
+
+        address.save()
+        person.save()
+
+        return redirect('/')
+
+    return render(request, 'index.html', {'persons' : persons})

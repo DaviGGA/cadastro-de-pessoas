@@ -28,7 +28,8 @@
 .edit-button {
     background: #f4ac3c;
     font-style: normal;
-    
+    text-decoration: none;
+    font-size: 14px;
 }
 
 .edit-button:hover {
